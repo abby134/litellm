@@ -1,0 +1,37 @@
+model_list:
+  - model_name: gpt-4o
+    litellm_params:
+      model: gpt-4o
+      api_key: "os.environ/OPENAI_API_KEY"
+
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: gpt-4o-mini
+      api_key: "os.environ/OPENAI_API_KEY"
+
+  - model_name: qwen-plus
+    litellm_params:
+      model: openai/qwen-plus
+      api_key: "os.environ/ALIYUN_API_KEY"
+      api_base: "os.environ/ALIYUN_API_BASE"
+
+  - model_name: qwen-turbo
+    litellm_params:
+      model: openai/qwen-turbo
+      api_key: "os.environ/ALIYUN_API_KEY"
+      api_base: "os.environ/ALIYUN_API_BASE"
+
+router_settings:
+  num_retries: 3
+  timeout: 60
+  retry_after: 5
+
+litellm_settings:
+  drop_params: true
+  request_timeout: 60
+
+general_settings:
+  master_key: "os.environ/LITELLM_MASTER_KEY"
+  database_url: "os.environ/DATABASE_URL"
+  store_model_in_db: true
+  ui_access_mode: "admin_only"
